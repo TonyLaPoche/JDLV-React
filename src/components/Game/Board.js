@@ -1,9 +1,16 @@
 // == Import
-// import PropTypesLib from 'prop-types';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-function Board() {
+function Board({ cellsNumber }) {
+  console.log(cellsNumber, ' => lignes et cellules à générer dans le tableau');
+  // NOTE Generation de grille impair mode.
+  /*
+    Arrondir à l'impair suppérieur si nombre pair. (ou trouver solution alternative pour le Scss)
+    Au nombre récupéré au state.
+    Pour chaque itération rajouter autant de cellulles que de lignes soumis
+  */
   return (
     <div className="GameArea">
       <div className="GameArea--row">
@@ -44,6 +51,10 @@ function Board() {
     </div>
   );
 }
+
+// Board.propTypes = {
+//   cellsNumber: PropTypes.number.isRequired,
+// };
 
 // == Export
 export default Board;

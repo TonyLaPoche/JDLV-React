@@ -1,9 +1,4 @@
 export const initialState = {
-  areaGame: [
-    [], [], [],
-    [], [], [],
-    [], [], [],
-  ],
   cellValue: {
     alive: 0,
     dead: 1,
