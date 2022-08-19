@@ -1,7 +1,7 @@
 // == Import
 // import PropTypesLib from 'prop-types'; // pas encore utile
 import { useDispatch, useSelector } from 'react-redux';
-import { cellToDisplay } from '../../actions/controlPanelAction';
+import { cellToDisplay, isClicked } from '../../actions/controlPanelAction';
 import './styles.scss';
 
 // == Composant
@@ -12,7 +12,7 @@ function ControlePanel() {
     distpach(cellToDisplay(evt.target.value));
   };
   const handleClick = (evt) => {
-    console.log(evt.target.name);
+    distpach(isClicked(evt.target.name));
   };
   return (
     <div className="controlePanel__container">
@@ -53,9 +53,16 @@ function ControlePanel() {
       </div>
       <div className="controlePanel__container--box">
         <h2 className="controlePanel__container--title">Panneau de controle</h2>
-        <button type="button" className="controlePanel__container--button" name="run" onClick={handleClick}> Lancer </button>
-        <button type="button" className="controlePanel__container--button" name="reset" onClick={handleClick}> Reset </button>
-        <button type="button" className="controlePanel__container--button" name="random" onClick={handleClick}> Aléatoire </button>
+        <button
+          type="button"
+          className="controlePanel__container--button"
+          name="runBtn"
+          onClick={handleClick}
+        >
+          Lancer
+        </button>
+        <button type="button" className="controlePanel__container--button" name="resetBtn" onClick={handleClick}> Reset </button>
+        <button type="button" className="controlePanel__container--button" name="randomBtn" onClick={handleClick}> Aléatoire </button>
         <input
           type="number"
           name="cellsNumber"

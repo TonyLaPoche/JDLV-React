@@ -1,11 +1,7 @@
 import { CELL_TO_DISPLAY } from '../actions/controlPanelAction';
 
 export const initialState = {
-  areaGame: [
-    [], [], [],
-    [], [], [],
-    [], [], [],
-  ],
+  areaGame: [],
   cellsNumber: 0,
 };
 
@@ -15,7 +11,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         cellsNumber: action.value,
-
       };
     default:
       return state;

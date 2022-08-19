@@ -1,6 +1,5 @@
 // == Import
 // import PropTypesLib from 'prop-types'; // pas encore utile
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Board from './Board';
 import './styles.scss';
@@ -10,12 +9,10 @@ function Game() {
   const cellsNumber = useSelector((state) => state.boardGenerator.cellsNumber);
   const isRun = useSelector((state) => state.interactionGame.isRun);
   const isRestart = useSelector((state) => state.interactionGame.isRestart);
-  useEffect(() => {
-    console.log(cellsNumber, ' <= new value');
-  }, [cellsNumber]);
+  const areaGame = useSelector((state) => state.boardGenerator.areaGame);
   return (
     <div>
-      <Board />
+      <Board cellsNumber={parseInt(cellsNumber, 10)} areaGame={areaGame} />
     </div>
   );
 }
