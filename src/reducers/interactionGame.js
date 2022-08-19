@@ -1,10 +1,7 @@
 import { IS_CLICKED } from '../actions/controlPanelAction';
 
 export const initialState = {
-  cellValue: {
-    alive: 0,
-    dead: 1,
-  },
+  cellValue: 'dead',
   runBtn: false,
   resetBtn: false,
   randomBtn: false,

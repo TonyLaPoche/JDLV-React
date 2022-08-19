@@ -1,7 +1,7 @@
 
 .GameArea {
-  width: 50rem;
-  height: 50rem;
+  width: 70rem;
+  height: 70rem;
   display: flex;
   margin: 2rem auto;
   flex-direction: column;
@@ -15,11 +15,14 @@
   &--cell {
     width: calc(1/3*100%);
     border: 2px solid #61DBFB;
-    transition: background-color 400ms ease-in-out;
+    transition: background-color 250ms ease;
   }
   &--cell:hover {
     cursor: pointer;
     background-color: rgba(97, 219, 251, 0.5);
+  }
+  .alive {
+    background-color: yellow;
   }
 }
 

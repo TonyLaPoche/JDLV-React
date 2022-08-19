@@ -1,4 +1,4 @@
-import { CELL_TO_DISPLAY } from '../actions/controlPanelAction';
+import { CELL_TO_DISPLAY, GENERATE_AREAGAME, RESET_AREAGAME } from '../actions/controlPanelAction';
 
 export const initialState = {
   areaGame: [],
@@ -10,7 +10,18 @@ const reducer = (state = initialState, action = {}) => {
     case CELL_TO_DISPLAY:
       return {
         ...state,
-        cellsNumber: action.value,
+        cellsNumber: action.value <= 30 && action.value >= 0 ? action.value : 30,
+      };
+    case GENERATE_AREAGAME:
+      return {
+        ...state,
+        areaGame: action.value,
+      };
+    case RESET_AREAGAME:
+      return {
+        ...state,
+        areaGame: [],
+        cellsNumber: 0,
       };
     default:
       return state;

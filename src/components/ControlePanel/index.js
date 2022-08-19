@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-expressions */
 // == Import
 // import PropTypesLib from 'prop-types'; // pas encore utile
 import { useDispatch, useSelector } from 'react-redux';
-import { cellToDisplay, isClicked } from '../../actions/controlPanelAction';
+import {
+  cellToDisplay, generateAreaGame, generateRandomAreaGame, isClicked, resetAreaGame,
+} from '../../actions/controlPanelAction';
 import './styles.scss';
 
 // == Composant
@@ -10,47 +13,15 @@ function ControlePanel() {
   const distpach = useDispatch();
   const handleChange = (evt) => {
     distpach(cellToDisplay(evt.target.value));
+    distpach(generateAreaGame(parseInt(evt.target.value, 10)));
   };
   const handleClick = (evt) => {
     distpach(isClicked(evt.target.name));
+    evt.target.name === 'randomBtn'
+      ? distpach(generateRandomAreaGame(parseInt(cellsNumber, 10))) : distpach(resetAreaGame());
   };
   return (
     <div className="controlePanel__container">
-      <div className="controlePanel__container--box">
-        <h2 className="controlePanel__container--title">Règles</h2>
-        <ul>
-          <li>
-            Si une cellule a exactement trois voisines vivantes,
-            elle est vivante à l’étape suivante.
-          </li>
-          <br />
-          <li>
-            Si une cellule a strictement moins de deux
-            ou strictement plus de trois voisines vivantes,
-            elle est morte à l’étape suivante.
-          </li>
-        </ul>
-      </div>
-      <div className="controlePanel__container--box">
-        <h2 className="controlePanel__container--title">Commande</h2>
-        <ul>
-          <li>
-            Cliquer sur une cellules afin de la colorier ou effacer
-          </li>
-          <br />
-          <li>
-            Reset rend le tableau vierge.
-          </li>
-          <br />
-          <li>
-            Aléatoire remplit le tableau de façon random.
-          </li>
-          <br />
-          <li>
-            Cellules à générer, merci de choisir dans un premier temps un nombre impair.
-          </li>
-        </ul>
-      </div>
       <div className="controlePanel__container--box">
         <h2 className="controlePanel__container--title">Panneau de controle</h2>
         <button
