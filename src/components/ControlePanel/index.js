@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   cellToDisplay, generateAreaGame, generateRandomAreaGame, isClicked, resetAreaGame,
 } from '../../actions/controlPanelAction';
+import PickerColor from './PickerColor';
 import './styles.scss';
 
 // == Composant
@@ -18,7 +19,8 @@ function ControlePanel() {
   const handleClick = (evt) => {
     distpach(isClicked(evt.target.name));
     evt.target.name === 'randomBtn'
-      ? distpach(generateRandomAreaGame(parseInt(cellsNumber, 10))) : distpach(resetAreaGame());
+      ? distpach(generateRandomAreaGame(parseInt(cellsNumber, 10))) 
+      : distpach(resetAreaGame(parseInt(cellsNumber, 10)));
   };
   return (
     <div className="controlePanel__container">
@@ -42,6 +44,7 @@ function ControlePanel() {
           value={cellsNumber}
           onChange={handleChange}
         />
+        <PickerColor />
       </div>
     </div>
   );

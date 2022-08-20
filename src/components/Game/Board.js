@@ -1,13 +1,10 @@
 // == Import
 import PropTypes from 'prop-types';
-import { generatorDomArray, generatorTable } from '../../generator';
 import Rows from './StructureBoard/Rows';
 import './styles.scss';
 
 // == Composant
 function Board({ cellsNumber, areaGame }) {
-  console.table(areaGame);
-  console.log(cellsNumber, ' => lignes et cellules à générer dans le tableau');
   const rows = [];
   for (let i = 0; i < cellsNumber; i++) {
     rows.push(<Rows key={i} cellsNumber={cellsNumber} id={i} areaGameRow={areaGame[i]} />);

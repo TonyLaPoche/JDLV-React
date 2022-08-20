@@ -1,7 +1,7 @@
-import { IS_CLICKED } from '../actions/controlPanelAction';
+import { CHANGE_CELL_COLOR, IS_CLICKED } from '../actions/controlPanelAction';
 
 export const initialState = {
-  cellValue: 'dead',
+  cellColor: 'yellow',
   runBtn: false,
   resetBtn: false,
   randomBtn: false,
@@ -10,10 +10,14 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case IS_CLICKED:
-      console.log([action.key], ' ', !state[action.key]);
       return {
         ...state,
         [action.key]: !state[action.key],
+      };
+    case CHANGE_CELL_COLOR:
+      return {
+        ...state,
+        cellColor: action.value,
       };
     default:
       return state;

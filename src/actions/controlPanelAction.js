@@ -3,6 +3,7 @@ export const IS_CLICKED = 'IS_CLICKED';
 export const GENERATE_AREAGAME = 'GENERATE_AREAGAME';
 export const GENERATE_RANDOM_AREAGAME = 'GENERATE_RANDOM_AREAGAME';
 export const RESET_AREAGAME = 'RESET_AREAGAME';
+export const IS_CELL_CLICKED = 'IS_CELL_CLICKED';
 
 export function cellToDisplay(value) {
   return {
@@ -23,7 +24,7 @@ export function generateAreaGame(value) {
   for (let i = 0; i < value; i++) {
     newArea.push([]);
     for (let u = 0; u < value; u++) {
-      newArea[i].push([0]);
+      newArea[i].push(0);
     }
   }
   return {
@@ -37,17 +38,55 @@ export function generateRandomAreaGame(value) {
   for (let i = 0; i < value; i++) {
     newArea.push([]);
     for (let u = 0; u < value; u++) {
-      newArea[i].push([Math.floor(Math.random() * 2)]);
+      newArea[i].push(Math.floor(Math.random() * 2));
     }
   }
   return {
-    type: GENERATE_AREAGAME,
+    type: GENERATE_RANDOM_AREAGAME,
     value: newArea,
   };
 }
 
-export function resetAreaGame() {
+export function resetAreaGame(value) {
+  const newArea = [];
+  for (let i = 0; i < value; i++) {
+    newArea.push([]);
+    for (let u = 0; u < value; u++) {
+      newArea[i].push(0);
+    }
+  }
   return {
     type: RESET_AREAGAME,
+    value: newArea,
+  };
+}
+
+export function isCellClicked(rowPos, cellPos) {
+  return {
+    type: IS_CELL_CLICKED,
+    rowPos: rowPos,
+    cellPos: cellPos,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const CHANGE_CELL_CLASS = 'CHANGE_CELL_CLASS';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function changeCellClass(value) {
+  return {
+    type: CHANGE_CELL_CLASS,
+    value: value,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const CHANGE_CELL_COLOR = 'CHANGE_CELL_COLOR';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function changeCellColor(value) {
+  return {
+    type: CHANGE_CELL_COLOR,
+    value: value,
   };
 }
