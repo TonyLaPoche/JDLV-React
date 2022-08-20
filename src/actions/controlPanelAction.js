@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 export const CELL_TO_DISPLAY = 'CELL_TO_DISPLAY';
 export const IS_CLICKED = 'IS_CLICKED';
 export const GENERATE_AREAGAME = 'GENERATE_AREAGAME';

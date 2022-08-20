@@ -1,3 +1,5 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-expressions */
 import {
   CELL_TO_DISPLAY, GENERATE_AREAGAME, GENERATE_RANDOM_AREAGAME, IS_CELL_CLICKED, RESET_AREAGAME,
 } from '../actions/controlPanelAction';
@@ -24,17 +26,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         areaGame: action.value,
-        // cellsNumber: 0,
       };
     case IS_CELL_CLICKED:
       let newArray = [];
       newArray = state.areaGame;
-      // newArray[action.row][action.cellPos] = 1;
       newArray[action.rowPos][action.cellPos] !== 0
         ? newArray[action.rowPos][action.cellPos] = 0
         : newArray[action.rowPos][action.cellPos] = 1;
-      // console.table(newArray);
-      // console.log('test => ', newArray[action.row][action.cellPos]);
       return {
         ...state,
         areaGame: newArray,

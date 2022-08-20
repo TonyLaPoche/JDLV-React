@@ -18,7 +18,7 @@ function Cells({ rowPos, cellPos }) {
   } else {
     color = colorDefault;
   }
-  console.log(color);
+  // console.log(color);
   const handleClick = () => {
     dispatch(isCellClicked(parseInt(rowPos, 10), parseInt(cellPos, 10)));
   };

@@ -2,9 +2,9 @@ import { CHANGE_CELL_COLOR, IS_CLICKED } from '../actions/controlPanelAction';
 
 export const initialState = {
   cellColor: 'yellow',
-  runBtn: false,
-  resetBtn: false,
-  randomBtn: false,
+  isRunBtn: false,
+  resetBtn: true,
+  randomBtn: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -13,6 +13,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: !state[action.key],
+        resetBtn: !state.resetBtn,
+        randomBtn: !state.randomBtn,
       };
     case CHANGE_CELL_COLOR:
       return {

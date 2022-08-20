@@ -11,16 +11,30 @@ import './styles.scss';
 // == Composant
 function ControlePanel() {
   const cellsNumber = useSelector((state) => state.boardGenerator.cellsNumber);
+  const isRunning = useSelector((state) => state.interactionGame.isRunBtn);
   const distpach = useDispatch();
   const handleChange = (evt) => {
-    distpach(cellToDisplay(evt.target.value));
-    distpach(generateAreaGame(parseInt(evt.target.value, 10)));
+    if (isRunning !== true) {
+      distpach(cellToDisplay(evt.target.value));
+      distpach(generateAreaGame(parseInt(evt.target.value, 10)));
+    }
+    else {
+      alert('Veuillez arrêter (bouton "STOP") le jeu ou raffraichir la page.');
+    }
+  };
+  const handleControlClick = (evt) => {
+    if (isRunning !== true) {
+      evt.target.name === 'randomBtn'
+        ? distpach(generateRandomAreaGame(parseInt(cellsNumber, 10)))
+        : distpach(resetAreaGame(parseInt(cellsNumber, 10)));
+    }
+    else {
+      console.log('Veuillez arrêter le jeu ou raffraichir la page.');
+      alert('Veuillez arrêter le jeu ou raffraichir la page.');
+    }
   };
   const handleClick = (evt) => {
     distpach(isClicked(evt.target.name));
-    evt.target.name === 'randomBtn'
-      ? distpach(generateRandomAreaGame(parseInt(cellsNumber, 10))) 
-      : distpach(resetAreaGame(parseInt(cellsNumber, 10)));
   };
   return (
     <div className="controlePanel__container">
@@ -29,18 +43,20 @@ function ControlePanel() {
         <button
           type="button"
           className="controlePanel__container--button"
-          name="runBtn"
+          name="isRunBtn"
           onClick={handleClick}
         >
-          Lancer
+          {!isRunning ? 'Lancer' : 'Stop'}
         </button>
-        <button type="button" className="controlePanel__container--button" name="resetBtn" onClick={handleClick}> Reset </button>
-        <button type="button" className="controlePanel__container--button" name="randomBtn" onClick={handleClick}> Aléatoire </button>
+        <button type="button" className="controlePanel__container--button" name="resetBtn" onClick={handleControlClick}> Reset </button>
+        <button type="button" className="controlePanel__container--button" name="randomBtn" onClick={handleControlClick}> Aléatoire </button>
         <input
           type="number"
           name="cellsNumber"
           className="controlePanel__container--input"
           placeholder="Cellules à générer"
+          min={3}
+          max={30}
           value={cellsNumber}
           onChange={handleChange}
         />
