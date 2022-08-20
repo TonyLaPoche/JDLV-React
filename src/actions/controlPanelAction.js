@@ -4,6 +4,8 @@ export const GENERATE_AREAGAME = 'GENERATE_AREAGAME';
 export const GENERATE_RANDOM_AREAGAME = 'GENERATE_RANDOM_AREAGAME';
 export const RESET_AREAGAME = 'RESET_AREAGAME';
 export const IS_CELL_CLICKED = 'IS_CELL_CLICKED';
+export const CHANGE_CELL_CLASS = 'CHANGE_CELL_CLASS';
+export const CHANGE_CELL_COLOR = 'CHANGE_CELL_COLOR';
 
 export function cellToDisplay(value) {
   return {
@@ -69,10 +71,6 @@ export function isCellClicked(rowPos, cellPos) {
   };
 }
 
-// Action Type => On l'utilise dans l'action creator ET dans le reducer
-export const CHANGE_CELL_CLASS = 'CHANGE_CELL_CLASS';
-
-// Action creator => On l'utilise au moment du dispatch()
 export function changeCellClass(value) {
   return {
     type: CHANGE_CELL_CLASS,
@@ -80,10 +78,6 @@ export function changeCellClass(value) {
   };
 }
 
-// Action Type => On l'utilise dans l'action creator ET dans le reducer
-export const CHANGE_CELL_COLOR = 'CHANGE_CELL_COLOR';
-
-// Action creator => On l'utilise au moment du dispatch()
 export function changeCellColor(value) {
   return {
     type: CHANGE_CELL_COLOR,
