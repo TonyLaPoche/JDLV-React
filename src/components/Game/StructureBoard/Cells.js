@@ -8,6 +8,7 @@ import { isCellClicked } from '../../../actions/controlPanelAction';
 // == Composant
 function Cells({ rowPos, cellPos }) {
   const dispatch = useDispatch();
+  const isRunning = useSelector((state) => state.interactionGame.isRunBtn);
   const cellValue = useSelector((state) => state.boardGenerator.areaGame[rowPos][cellPos]);
   const cellClassSelector = useSelector((state) => state.boardGenerator.cellClass);
   const colorDefault = useSelector((state) => state.interactionGame.cellColor);
@@ -15,12 +16,18 @@ function Cells({ rowPos, cellPos }) {
   let color = '';
   if (cellClassSelector[cellValue] === 'GameArea--cell alive') {
     color = colorAlive;
-  } else {
+  }
+  else {
     color = colorDefault;
   }
   // console.log(color);
   const handleClick = () => {
-    dispatch(isCellClicked(parseInt(rowPos, 10), parseInt(cellPos, 10)));
+    if (isRunning !== true) {
+      dispatch(isCellClicked(parseInt(rowPos, 10), parseInt(cellPos, 10)));
+    }
+    else {
+      alert('Veuillez arrêter (bouton "STOP") le jeu ou raffraichir la page.');
+    }
   };
   // console.log('cell value : ', cellClassSelector[cellValue]);
   return (
