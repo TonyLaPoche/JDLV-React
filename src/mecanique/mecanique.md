@@ -38,3 +38,5 @@ un **clearInterval** permettant de de rétablir l'état du jeu à son état d'or
         - J'ai moins de 2 voisins ou plus de 3 voisins vivant alors la cellules courante est **morte**.  
       - A chaque cas de figure je push() le nouvelle état de ma cellules courante dans mon nouveau tableau de jeu.
       - Je remplace mon tableau Initiale par le nouveau tableau.
+
+***
