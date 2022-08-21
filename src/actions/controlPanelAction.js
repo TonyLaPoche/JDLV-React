@@ -85,3 +85,12 @@ export function changeCellColor(value) {
     value: value,
   };
 }
+
+export const SET_DELAY_LOOP = 'SET_DELAY_LOOP';
+
+export function setDelayLoop(value) {
+  return {
+    type: SET_DELAY_LOOP,
+    value: value,
+  };
+}

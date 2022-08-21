@@ -1,10 +1,11 @@
-import { CHANGE_CELL_COLOR, IS_CLICKED } from '../actions/controlPanelAction';
+import { CHANGE_CELL_COLOR, IS_CLICKED, SET_DELAY_LOOP } from '../actions/controlPanelAction';
 
 export const initialState = {
   cellColor: 'yellow',
   isRunBtn: false,
   resetBtn: true,
   randomBtn: true,
+  delayLoop: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +21,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         cellColor: action.value,
+      };
+    case SET_DELAY_LOOP:
+      return {
+        ...state,
+        delayLoop: action.value,
       };
     default:
       return state;

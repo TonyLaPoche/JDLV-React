@@ -3,7 +3,7 @@
 // import PropTypesLib from 'prop-types'; // pas encore utile
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  cellToDisplay, generateAreaGame, generateRandomAreaGame, isClicked, resetAreaGame,
+  cellToDisplay, generateAreaGame, generateRandomAreaGame, isClicked, resetAreaGame, setDelayLoop,
 } from '../../actions/controlPanelAction';
 import PickerColor from './PickerColor';
 import './styles.scss';
@@ -12,6 +12,7 @@ import './styles.scss';
 function ControlePanel() {
   const cellsNumber = useSelector((state) => state.boardGenerator.cellsNumber);
   const isRunning = useSelector((state) => state.interactionGame.isRunBtn);
+  const delayLoop = useSelector((state) => state.interactionGame.delayLoop);
   const distpach = useDispatch();
   const handleChange = (evt) => {
     if (isRunning !== true) {
@@ -36,6 +37,9 @@ function ControlePanel() {
   const handleClick = (evt) => {
     distpach(isClicked(evt.target.name));
   };
+  const handleChangeTimer = (evt) => {
+    distpach(setDelayLoop(evt.target.value));
+  };
   return (
     <div className="controlePanel__container">
       <div className="controlePanel__container--box">
@@ -59,6 +63,16 @@ function ControlePanel() {
           max={30}
           value={cellsNumber}
           onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="delayLoop"
+          className="controlePanel__container--input"
+          placeholder="Temps d'éxécution"
+          min={0}
+          max={5}
+          value={delayLoop}
+          onChange={handleChangeTimer}
         />
         <PickerColor />
       </div>
