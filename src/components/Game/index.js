@@ -13,7 +13,7 @@ function Game() {
   const cellsNumber = useSelector((state) => state.boardGenerator.cellsNumber);
   const AreaGame = useSelector((state) => state.boardGenerator.areaGame);
   const cycleGame = useSelector((state) => state.boardGenerator.cycleGame);
-  const delay = delayLoop * 500;
+  const delay = delayLoop * 200;
   const isStart = isRunning !== false ? delay : 0;
 
   return (
