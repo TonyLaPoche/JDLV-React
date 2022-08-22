@@ -15,7 +15,6 @@ const UseStartGame = (callback, delay) => {
       dispatch(savedCallback.current());
     };
     if (delay !== 0) {
-      console.log('tick = ', tick);
       const id = setInterval(tick, delay);
       return () => clearInterval(id);
     }

@@ -12,14 +12,14 @@ function Game() {
   const delayLoop = useSelector((state) => state.interactionGame.delayLoop);
   const cellsNumber = useSelector((state) => state.boardGenerator.cellsNumber);
   const AreaGame = useSelector((state) => state.boardGenerator.areaGame);
-  const cycleGame = useSelector((state) => state.metaGame.cycleGame);
-  const delay = delayLoop * 1000;
+  const cycleGame = useSelector((state) => state.boardGenerator.cycleGame);
+  const delay = delayLoop * 500;
   const isStart = isRunning !== false ? delay : 0;
 
   return (
     <>
       {UseStartGame(setNewAreaGame, isStart)}
-      <h1> counter : {cycleGame}</h1>
+      <h1 className="cycleHeader"> Cycle : {cycleGame}</h1>
       <Board cellsNumber={parseInt(cellsNumber, 10)} areaGame={AreaGame} />
     </>
   );

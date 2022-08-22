@@ -14,6 +14,7 @@ export const initialState = {
   areaGame: [],
   cellsNumber: 0,
   cellClass: ['GameArea--cell', 'GameArea--cell alive'],
+  cycleGame: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,7 +22,7 @@ const reducer = (state = initialState, action = {}) => {
     case CELL_TO_DISPLAY:
       return {
         ...state,
-        cellsNumber: action.value >= 0 && action.value <= 30 ? action.value : 0,
+        cellsNumber: action.value >= 0 && action.value <= 50 ? action.value : 0,
       };
     case GENERATE_AREAGAME:
       return {
@@ -32,6 +33,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         areaGame: action.value,
+        cycleGame: 0,
       };
     case IS_CELL_CLICKED:
       let newArray = [];
@@ -47,11 +49,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         areaGame: action.value,
+        cycleGame: 0,
       };
     case SET_NEW_AREAGAME:
       return {
         ...state,
         areaGame: RunGame(state.areaGame),
+        cycleGame: state.cycleGame + 1,
       };
     default:
       return state;
