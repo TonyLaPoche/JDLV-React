@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import interactionGameReducer from './interactionGame';
 import boardGenerator from './boardGenerator';
-import metaGame from './metaGame';
+import savedGame from './savedGame';
 
 const rootReducer = combineReducers({
   interactionGame: interactionGameReducer,
   boardGenerator: boardGenerator,
-  metaGame: metaGame,
+  savedGame: savedGame,
 });
 
 export default rootReducer;

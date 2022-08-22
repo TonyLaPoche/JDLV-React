@@ -7,6 +7,7 @@ export const RESET_AREAGAME = 'RESET_AREAGAME';
 export const IS_CELL_CLICKED = 'IS_CELL_CLICKED';
 export const CHANGE_CELL_CLASS = 'CHANGE_CELL_CLASS';
 export const CHANGE_CELL_COLOR = 'CHANGE_CELL_COLOR';
+export const KEEPING_INITIAL_GAME = 'KEEPING_INITIAL_GAME';
 
 export function cellToDisplay(value) {
   return {
@@ -95,23 +96,36 @@ export function setDelayLoop(value) {
   };
 }
 
-// Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SET_NEW_AREAGAME = 'SET_NEW_AREAGAME';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function setNewAreaGame() {
   return {
     type: SET_NEW_AREAGAME,
   };
 }
 
-// Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SET_COUNT_CYCLE = 'SET_COUNT_CYCLE';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function setCountCycle() {
   return {
     type: SET_COUNT_CYCLE,
-    // value: value,
+  };
+}
+
+export function keepingInitialGame(value) {
+  return {
+    type: KEEPING_INITIAL_GAME,
+    value: value,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SET_LAST_PATERN = 'SET_LAST_PATERN';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function setLastPatern(value) {
+  return {
+    type: SET_LAST_PATERN,
+    value: value,
   };
 }
