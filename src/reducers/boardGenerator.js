@@ -6,6 +6,7 @@ import {
   GENERATE_RANDOM_AREAGAME,
   IS_CELL_CLICKED,
   RESET_AREAGAME,
+  SET_LAST_PATERN,
   SET_NEW_AREAGAME,
 } from '../actions/controlPanelAction';
 import { RunGame } from '../mecanique';
@@ -56,6 +57,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         areaGame: RunGame(state.areaGame),
         cycleGame: state.cycleGame + 1,
+      };
+    case SET_LAST_PATERN:
+      return {
+        ...state,
+        areaGame: action.value,
+        cycleGame: 0,
       };
     default:
       return state;

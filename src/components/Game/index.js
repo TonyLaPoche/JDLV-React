@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { setNewAreaGame } from '../../actions/controlPanelAction';
 import UseStartGame from '../../customHook/UseStartGame';
 import Board from './Board';
+import SavedBoxs from './SavedBoxs';
 import './styles.scss';
 
 // == Composant
@@ -20,7 +21,10 @@ function Game() {
     <>
       {UseStartGame(setNewAreaGame, isStart)}
       <h1 className="cycleHeader"> Cycle : {cycleGame}</h1>
-      <Board cellsNumber={parseInt(cellsNumber, 10)} areaGame={AreaGame} />
+      <div className="GameArea__container">
+        <SavedBoxs />
+        <Board cellsNumber={parseInt(cellsNumber, 10)} areaGame={AreaGame} />
+      </div>
     </>
   );
 }
