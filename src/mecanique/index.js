@@ -1,29 +1,17 @@
 /* eslint-disable no-continue */
-import { useSelector } from 'react-redux';
 
-const AreaGame = useSelector((state) => state.boadGenerator.AreaGame);
-
-function scanArea() {
-  for (const row of AreaGame) {
-    for (const cell of row) {
-      console.log(`%c [${row}] [${cell}] => ${scanVoisin(row, cell)} voisins`, 'color:green;');
-    }
-  }
-}
-
-function scanVoisin(row, cell) {
-  console.log('%c je Scan actuellement la cellules => ', AreaGame[row][cell], 'color: crimson;');
+export function scanVoisin(row, cell, AreaGame) {
   const largeurArray = AreaGame[0].length;
   const hauteurArray = AreaGame.length;
 
   let count = 0;
-  for (let i = -1; i <= 1; i++) {
+  for (let i = -1; i <= 1; i += 1) {
     // SI on est sur la row en dehors du tableau
     if (row + i < 0 || row + i > hauteurArray - 1) {
       continue;
     }
 
-    for (let j = -1; j <= 1; j++) {
+    for (let j = -1; j <= 1; j += 1) {
       // SI on est sur la col en dehors du tableau
       if (cell + j < 0 || cell + j > largeurArray - 1) {
         continue;
@@ -40,13 +28,13 @@ function scanVoisin(row, cell) {
   return count;
 }
 
-function next() {
+export function RunGame(AreaGame) {
   const tableauMisAJour = [];
   // 1 je scanne mon tableau
-  for (let row = 0; row < AreaGame.length; row++) {
+  for (let row = 0; row < AreaGame.length; row += 1) {
     tableauMisAJour.push([]);
-    for (let col = 0; col < AreaGame.length; col++) {
-      const voisins = scanVoisin(row, col);
+    for (let col = 0; col < AreaGame.length; col += 1) {
+      const voisins = scanVoisin(row, col, AreaGame);
       const isDead = AreaGame[row][col] === 0;
 
       // 1 La cellule est morte && elle a exactement 3 voisins => elle vit!
@@ -65,5 +53,6 @@ function next() {
       tableauMisAJour[row].push(0);
     }
   }
-  // AreaGame = tableauMisAJour; // ! DISPATCH NEW AREA GAME
+
+  return tableauMisAJour;
 }

@@ -1,8 +1,14 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-expressions */
 import {
-  CELL_TO_DISPLAY, GENERATE_AREAGAME, GENERATE_RANDOM_AREAGAME, IS_CELL_CLICKED, RESET_AREAGAME,
+  CELL_TO_DISPLAY,
+  GENERATE_AREAGAME,
+  GENERATE_RANDOM_AREAGAME,
+  IS_CELL_CLICKED,
+  RESET_AREAGAME,
+  SET_NEW_AREAGAME,
 } from '../actions/controlPanelAction';
+import { RunGame } from '../mecanique';
 
 export const initialState = {
   areaGame: [],
@@ -41,6 +47,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         areaGame: action.value,
+      };
+    case SET_NEW_AREAGAME:
+      return {
+        ...state,
+        areaGame: RunGame(state.areaGame),
       };
     default:
       return state;

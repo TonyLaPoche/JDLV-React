@@ -94,3 +94,24 @@ export function setDelayLoop(value) {
     value: value,
   };
 }
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SET_NEW_AREAGAME = 'SET_NEW_AREAGAME';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function setNewAreaGame() {
+  return {
+    type: SET_NEW_AREAGAME,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SET_COUNT_CYCLE = 'SET_COUNT_CYCLE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function setCountCycle() {
+  return {
+    type: SET_COUNT_CYCLE,
+    // value: value,
+  };
+}
