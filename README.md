@@ -1,6 +1,6 @@
 # JDLV-React
 
-Jeux de la vie en module React
+Jeux de la vie en React avec Redux
 
 ## Objectif
 
@@ -10,3 +10,8 @@ Jeux de la vie en module React
   4. Ratouter la possibilité d'accélération. CHECK
   5. Rajouter la possibilité de pause. CHECK
   6. Rajouter la possibilité de gardez en mémorie un patern. EN COUR
+
+## Installation
+
+  1. Télécharger le repos.
+  2. Installer les dépendances avec `Yarn` puis lancer le serveur avec `Yarn Start`.
