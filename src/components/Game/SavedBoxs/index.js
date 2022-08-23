@@ -7,13 +7,15 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLastPatern } from '../../../actions/controlPanelAction';
-import Save from './Save';
+import GeneratorSave from './GeneratorSave';
+import Saves from './Saves';
 
 // == Composant
 function SavedBoxs() {
   const lastpaternPlayed = useSelector((state) => state.savedGame.initialGame);
   const saves = useSelector((state) => state.savedGame.saved);
-  saves.map((item) => console.log({...item}));
+  const savePatern = useSelector((state) => state.savedGame.savePatern);
+  // saves.map((item) => console.log({...item}));
   const dispatch = useDispatch();
   const handlerReplayLasted = () => {
     dispatch(setLastPatern(lastpaternPlayed));
@@ -29,37 +31,14 @@ function SavedBoxs() {
           </p>
         </button>
       </div>
-      {saves.map((item) => <Save key={item.id} {...item} />)}
-      {/*  <div className="savedBox--item">
-        <button type="button">
-          <FontAwesomeIcon icon={faDownload} size="xl" />
-        </button>
-        <p>Sauvegarde n°1</p>
-        <button type="button">
-          <FontAwesomeIcon icon={faPencil} size="xl" />
-        </button>
-      </div>
-      <div className="savedBox--item">
-        <button type="button">
-          <FontAwesomeIcon icon={faDownload} size="xl" />
-        </button>
-        <input name="slot2" value="Sauvegarde n°2" />
-        <button type="button">
-          <FontAwesomeIcon icon={faPencil} size="xl" color="green"/>
-        </button>
-      </div>
-      <div className="savedBox--item">
-        <button type="button">
-          <FontAwesomeIcon icon={faPlay} size="xl" />
-        </button>
-        <p>Sauvegarde n°1</p>
-        <button type="button">
-          <FontAwesomeIcon icon={faPencil} size="xl" />
-        </button>
-        <button type="button">
-          <FontAwesomeIcon icon={faSkullCrossbones} size="xl" />
-        </button>
-      </div> */}
+      {
+        // TODO generateur de save
+        <GeneratorSave key="generateurSave" {...savePatern} />
+      }
+      {
+        // TODO generateur de list des saves
+      }
+      {saves.map((item) => <Saves key={item.id} {...item} />)}
     </div>
   );
 }

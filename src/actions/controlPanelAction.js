@@ -129,3 +129,39 @@ export function setLastPatern(value) {
     value: value,
   };
 }
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SET_MODIFY = 'SET_MODIFY';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function setModify(id) {
+  return {
+    type: SET_MODIFY,
+    id: id,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const CHANGE_INPUT_NAME_SAVE = 'CHANGE_INPUT_NAME_SAVE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function changeInputNameSave(value, id) {
+  return {
+    type: CHANGE_INPUT_NAME_SAVE,
+    value: value,
+    id: id,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const INSERT_NEW_ARRAY_ON_SAVE = 'INSERT_NEW_ARRAY_ON_SAVE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function insertNewArrayOnSave(value, id, size) {
+  return {
+    type: INSERT_NEW_ARRAY_ON_SAVE,
+    value: value,
+    id: id,
+    size: size,
+  };
+}
