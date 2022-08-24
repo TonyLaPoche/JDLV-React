@@ -1,15 +1,17 @@
 // == Import
 // import PropTypesLib from 'prop-types';
 
-import { faDownload, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeInputNameSave, insertNewArrayOnSave } from '../../../actions/controlPanelAction';
 
 // == Composant
-function GeneratorSave({ id, savedName }) {
+function GeneratorSave({ id, saveName }) {
   const dispatch = useDispatch();
   const currentPattern = useSelector((state) => state.boardGenerator.areaGame);
+  // const savedList = useSelector((state) => state.savedGame.saved);
+  // console.log(savedList);
   const handleSave = () => {
     console.log('je souhaite save la save: ', id);
     console.log('je souhaite save ce patern: ', currentPattern);
@@ -24,24 +26,15 @@ function GeneratorSave({ id, savedName }) {
     <div className="savedBox--item">
 
       <button type="button" onClick={handleSave}>
-        <FontAwesomeIcon icon={faDownload} size="xl" color="red" />
+        <FontAwesomeIcon icon={faDownload} size="xl" color={saveName !== '' ? 'green' : 'red'} />
       </button>
 
       <input
         type="text"
         name="slot$"
-        value={savedName}
+        value={saveName}
         onChange={handleInput}
       />
-
-      <button
-        type="button"
-        onClick={() => {
-          console.log('feature prochaine');
-        }}
-      >
-        <FontAwesomeIcon icon={faShare} size="xl" />
-      </button>
 
     </div>
   );

@@ -175,3 +175,14 @@ export function setSaveOnScreen(valuePatern, sizePatern) {
     sizePatern: sizePatern,
   };
 }
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const DELETE_SAVE = 'DELETE_SAVE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function deleteSave(value) {
+  return {
+    type: DELETE_SAVE,
+    value: value,
+  };
+}

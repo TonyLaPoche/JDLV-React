@@ -1,7 +1,7 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-shadow */
 import {
-  CHANGE_INPUT_NAME_SAVE, INSERT_NEW_ARRAY_ON_SAVE, KEEPING_INITIAL_GAME, SET_MODIFY,
+  CHANGE_INPUT_NAME_SAVE, DELETE_SAVE, INSERT_NEW_ARRAY_ON_SAVE, KEEPING_INITIAL_GAME, SET_MODIFY,
 } from '../actions/controlPanelAction';
 
 export const initialState = {
@@ -23,20 +23,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         initialGame: action.value,
       };
-    case SET_MODIFY:
-      // eslint-disable-next-line max-len
-      state.saved.filter(
-        (save) => save.id === action.id,
-      ).map(
-        (save) => save.isModify = !save.isModify,
-      );
-      // console.log(newValue);
-      return {
-        ...state,
-        saved: [
-          ...state.saved,
-        ],
-      };
     case CHANGE_INPUT_NAME_SAVE:
       return {
         ...state,
@@ -57,6 +43,11 @@ const reducer = (state = initialState, action = {}) => {
             sizePatern: action.size,
           },
         ],
+      };
+    case DELETE_SAVE:
+      return {
+        ...state,
+        saved: action.value,
       };
     default:
       return state;
