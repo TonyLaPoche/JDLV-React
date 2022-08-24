@@ -38,35 +38,24 @@ const reducer = (state = initialState, action = {}) => {
         ],
       };
     case CHANGE_INPUT_NAME_SAVE:
-      state.saved.filter(
-        (save) => save.id === action.id,
-      ).map(
-        (save) => save.savedName = action.value,
-      );
       return {
         ...state,
+        savePatern: {
+          ...state.savePatern,
+          saveName: action.value,
+        },
       };
     case INSERT_NEW_ARRAY_ON_SAVE:
-      // state.saved.filter(
-      //   (save) => save.id === action.id,
-      // ).map(
-      //   (save) => save.slot = action.value,
-      // );
-      const newSave = state.saved.filter(
-        (object) => object.id === Math.max(object.id),
-      ).map(
-        (obj) => (
-          {
-            ...obj, slot: action.value, size: action.size, id: (action.id + 1),
-          }
-        ),
-      );
-      console.log(newSave);
       return {
         ...state,
+        savePatern: { ...state.savePatern, id: state.savePatern.id + 1 },
         saved: [
           ...state.saved,
-          newSave[0],
+          {
+            ...state.savePatern,
+            valuePatern: action.value,
+            sizePatern: action.size,
+          },
         ],
       };
     default:

@@ -31,10 +31,7 @@ function SavedBoxs() {
           </p>
         </button>
       </div>
-      {
-        // TODO generateur de save
-        <GeneratorSave key="generateurSave" {...savePatern} />
-      }
+      <GeneratorSave key="generateurSave" {...savePatern} />
       {
         // TODO generateur de list des saves
       }

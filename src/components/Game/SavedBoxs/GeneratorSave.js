@@ -4,7 +4,7 @@
 import { faDownload, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
-import { insertNewArrayOnSave } from '../../../actions/controlPanelAction';
+import { changeInputNameSave, insertNewArrayOnSave } from '../../../actions/controlPanelAction';
 
 // == Composant
 function GeneratorSave({ id, savedName }) {
@@ -14,10 +14,10 @@ function GeneratorSave({ id, savedName }) {
     console.log('je souhaite save la save: ', id);
     console.log('je souhaite save ce patern: ', currentPattern);
     console.log('ce patern à une taille de : ', currentPattern.length);
-    // dispatch(insertNewArrayOnSave(currentPattern, id, currentPattern.length));
+    dispatch(insertNewArrayOnSave(currentPattern, currentPattern.length));
   };
   const handleInput = (e) => {
-    // dispatch(changeInputNameSave(e.target.value, id));
+    dispatch(changeInputNameSave(e.target.value));
     console.log('create input');
   };
   return (
@@ -27,7 +27,12 @@ function GeneratorSave({ id, savedName }) {
         <FontAwesomeIcon icon={faDownload} size="xl" color="red" />
       </button>
 
-      <input name="slot$" value={savedName} onChange={handleInput} />
+      <input
+        type="text"
+        name="slot$"
+        value={savedName}
+        onChange={handleInput}
+      />
 
       <button
         type="button"

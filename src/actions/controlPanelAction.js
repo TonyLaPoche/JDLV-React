@@ -145,11 +145,10 @@ export function setModify(id) {
 export const CHANGE_INPUT_NAME_SAVE = 'CHANGE_INPUT_NAME_SAVE';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function changeInputNameSave(value, id) {
+export function changeInputNameSave(value) {
   return {
     type: CHANGE_INPUT_NAME_SAVE,
     value: value,
-    id: id,
   };
 }
 
@@ -157,11 +156,22 @@ export function changeInputNameSave(value, id) {
 export const INSERT_NEW_ARRAY_ON_SAVE = 'INSERT_NEW_ARRAY_ON_SAVE';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function insertNewArrayOnSave(value, id, size) {
+export function insertNewArrayOnSave(value, size) {
   return {
     type: INSERT_NEW_ARRAY_ON_SAVE,
     value: value,
-    id: id,
     size: size,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SET_SAVE_SCREEN = 'SET_SAVE_SCREEN';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function setSaveOnScreen(valuePatern, sizePatern) {
+  return {
+    type: SET_SAVE_SCREEN,
+    valuePatern: valuePatern,
+    sizePatern: sizePatern,
   };
 }

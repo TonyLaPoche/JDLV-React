@@ -4,24 +4,25 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
+import { setSaveOnScreen } from '../../../actions/controlPanelAction';
 // import { changeInputNameSave, insertNewArrayOnSave, setLastPatern, setModify } from '../../../actions/controlPanelAction';
 // import PropTypesLib from 'prop-types';
 
 // == Composant
 function Saves({
-  savedName, isModify, id, slot,
+  saveName, sizePatern, valuePatern,
 }) {
   const dispatch = useDispatch();
   const handleRemove = () => {};
   const handlePlay = () => {
-    // dispatch(setLastPatern(slot));
+    dispatch(setSaveOnScreen(valuePatern, sizePatern));
   };
   return (
     <div className="savedBox--item">
-      <button type="button" onClick={handlePlay}>
+      <button type="button" name={saveName} onClick={handlePlay}>
         <FontAwesomeIcon icon={faPlay} size="xl" color="black" />
       </button>
-      <p>{savedName}</p>
+      <p>{saveName}</p>
       <button type="button" onClick={handleRemove}>
         <FontAwesomeIcon icon={faSkullCrossbones} size="xl" />
       </button>

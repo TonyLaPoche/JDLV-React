@@ -8,6 +8,7 @@ import {
   RESET_AREAGAME,
   SET_LAST_PATERN,
   SET_NEW_AREAGAME,
+  SET_SAVE_SCREEN,
 } from '../actions/controlPanelAction';
 import { RunGame } from '../mecanique';
 
@@ -62,6 +63,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         areaGame: action.value,
+        cycleGame: 0,
+      };
+    case SET_SAVE_SCREEN:
+      return {
+        ...state,
+        areaGame: action.valuePatern,
+        cellsNumber: action.sizePatern,
         cycleGame: 0,
       };
     default:
