@@ -15,3 +15,7 @@ Jeux de la vie en React avec Redux
 
   1. Télécharger le repos.
   2. Installer les dépendances avec `Yarn` puis lancer le serveur avec `Yarn Start`.
+
+# Demo
+
+  V1. [demo](https://jdlv-tony-react-v1.surge.sh/)
