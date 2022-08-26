@@ -2,7 +2,7 @@
 // import PropTypesLib from 'prop-types';
 
 import {
-  faArrowRotateLeft, faDownload, faPencil, faPlay, faSkullCrossbones,
+  faArrowRotateLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +24,7 @@ function SavedBoxs() {
     <div className="GameArea__container--savedBox">
       <h2>Patern Sauvegardé. <br />(feature en cours) </h2>
       <div className="savedBox--item">
-        <button type="button" onClick={handlerReplayLasted}>
+        <button type="button" className="fullBtn" onClick={handlerReplayLasted}>
           <FontAwesomeIcon icon={faArrowRotateLeft} size="xl" />
           <p>
             Rejouer le dernier patern
@@ -32,9 +32,6 @@ function SavedBoxs() {
         </button>
       </div>
       <GeneratorSave key="generateurSave" {...savePatern} />
-      {
-        // TODO generateur de list des saves
-      }
       {saves.map((item) => <Saves key={item.id} {...item} />)}
     </div>
   );
