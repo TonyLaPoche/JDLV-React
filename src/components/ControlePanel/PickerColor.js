@@ -9,7 +9,8 @@ function PickerColor() {
   };
   return (
     <GithubPicker
-      triangle="hide"
+      width="100%"
+      triangle="top-right"
       colors={[
         '#f72334',
         '#B80000',

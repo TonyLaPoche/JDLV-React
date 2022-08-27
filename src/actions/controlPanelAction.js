@@ -16,10 +16,11 @@ export function cellToDisplay(value) {
   };
 }
 
-export function isClicked(key) {
+export function isClicked(key, speed) {
   return {
     type: IS_CLICKED,
     key: key,
+    speed: speed,
   };
 }
 
@@ -184,5 +185,24 @@ export function deleteSave(value) {
   return {
     type: DELETE_SAVE,
     value: value,
+  };
+}
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const ADDING_SPEED_VALUE = 'ADDING_SPEED_VALUE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function addingSpeedValue() {
+  return {
+    type: ADDING_SPEED_VALUE,
+  };
+}
+
+export const DECREASE_SPEED_VALUE = 'DECREASE_SPEED_VALUE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function decreaseSpeedValue() {
+  return {
+    type: DECREASE_SPEED_VALUE,
   };
 }

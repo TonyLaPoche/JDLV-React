@@ -13,8 +13,12 @@ import {
 import { RunGame } from '../mecanique';
 
 export const initialState = {
-  areaGame: [],
-  cellsNumber: 0,
+  areaGame: [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ],
+  cellsNumber: 3,
   cellClass: ['GameArea--cell', 'GameArea--cell alive'],
   cycleGame: 0,
 };
