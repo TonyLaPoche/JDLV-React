@@ -13,7 +13,6 @@ import {
   isClicked,
   keepingInitialGame,
   resetAreaGame,
-  setDelayLoop,
 } from '../../actions/controlPanelAction';
 import PickerColor from './PickerColor';
 import './styles.scss';
@@ -51,9 +50,6 @@ function ControlePanel() {
       distpach(keepingInitialGame(areaGame));
     }
     distpach(isClicked(evt.target.name, isRunning !== false ? 0 : 5));
-  };
-  const handleChangeTimer = (evt) => {
-    distpach(setDelayLoop(evt.target.value));
   };
 
   const handleSpeedDecrease = (evt) => {
@@ -112,17 +108,8 @@ function ControlePanel() {
       </div>
 
       <div className="controlePanel__container--box">
-        <button
-          type="button"
-          className="controlePanel__container--box--button--incr"
-          name="addSize"
-          title="augmente le nombre de case"
-          onClick={() => {}}
-        >
-          <FontAwesomeIcon icon={faMinus} size="xl" color="black" />
-        </button>
+        <p className="controlePanel__container--text"> Taille du patern : </p>
         <div className="controlePanel__container--item">
-          <p className=""> Taille du patern : {cellsNumber}</p>
           <input
             type="number"
             name="cellsNumber"
@@ -132,17 +119,9 @@ function ControlePanel() {
             max={50}
             value={cellsNumber}
             onChange={handleChange}
+            title="minimum 3 et maximum 50"
           />
         </div>
-        <button
-          type="button"
-          className="controlePanel__container--box--button--incr"
-          name="lessSize"
-          title="reduit le nombre de case"
-          onClick={() => {}}
-        >
-          <FontAwesomeIcon icon={faPlus} size="xl" color="black" />
-        </button>
       </div>
 
       <div className="controlePanel__container--box">
@@ -156,17 +135,7 @@ function ControlePanel() {
           <FontAwesomeIcon icon={faMinus} size="xl" color="black" />
         </button>
         <div className="controlePanel__container--item">
-          <p className=""> Vitesse : {speedDelayName[delayLoop]} </p>
-          {/* <input
-            type="number"
-            name="delayLoop"
-            className="controlePanel__container--input"
-            placeholder="Temps d'éxécution"
-            min={0}
-            max={5}
-            value={delayLoop}
-            onChange={handleChangeTimer}
-          /> */}
+          <p className=""> Vitesse :<br />{speedDelayName[delayLoop]} </p>
         </div>
         <button
           type="button"
@@ -184,77 +153,6 @@ function ControlePanel() {
         <PickerColor />
       </div>
     </div>
-    // <div className="controlePanel__container">
-    //   <div className="controlePanel__container--box">
-    //     <h2 className="controlePanel__container--title">Panneau de controle</h2>
-    //     <button
-    //       type="button"
-    //       className="controlePanel__container--button"
-    //       name="isRunBtn"
-    //       onClick={handleClick}
-    //       title="Lance le jeu (veuillez avoir selectionner un nombre de case et une vitesse)"
-    //     >
-    //       {!isRunning ? 'Lancer' : 'Stop'}
-    //     </button>
-    //     <button
-    //       type="button"
-    //       className="controlePanel__container--button"
-    //       name="resetBtn"
-    //       onClick={handleControlClick}
-    //       title="Vide la grille sans modifier vitesse ou nombre de cellules affiché à l'écran."
-    //     >
-    //       Reset
-    //     </button>
-    //     <button
-    //       type="button"
-    //       className="controlePanel__container--button"
-    //       name="randomBtn"
-    //       onClick={handleControlClick}
-    //       title="Remplit aléatoirement votre grille"
-    //     >
-    //       Aléatoire
-    //     </button>
-    //     <div className="controlePanel__container--input">
-    //       <p>
-    //         Nombres de cases.
-    //       </p>
-    //       <br />
-    //       <input
-    //         type="number"
-    //         name="cellsNumber"
-    //         className="controlePanel__container--input"
-    //         placeholder="Cellules à générer"
-    //         min={3}
-    //         max={50}
-    //         value={cellsNumber}
-    //         onChange={handleChange}
-    //       />
-    //     </div>
-    //     <div className="controlePanel__container--input">
-    //       <p>
-    //         Vitesse de défilement.<br />( 1 = rapide, 5 = lent )
-    //       </p>
-    //       <br />
-    //       <input
-    //         type="number"
-    //         name="delayLoop"
-    //         className="controlePanel__container--input"
-    //         placeholder="Temps d'éxécution"
-    //         min={0}
-    //         max={5}
-    //         value={delayLoop}
-    //         onChange={handleChangeTimer}
-    //       />
-    //     </div>
-    //     <div className="controlePanel__container--input">
-    //       <p>
-    //         Changer la couleur.<br />(Arrière plan)
-    //       </p>
-    //       <br />
-    //       <PickerColor />
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 

@@ -15,6 +15,10 @@
     margin: 0 auto 1em auto ;
   }
 
+  &--text {
+    margin-left: 1rem;
+  }
+
   &--box {
     margin-bottom: 1em;
     display: flex;
@@ -29,7 +33,7 @@
       &--incr {
         margin: 0 1rem;
         height: 100%;
-        width: 10%;
+        width: 20%;
         align-self: center;
       }
     }
@@ -48,4 +52,13 @@
     flex-direction: column;
     text-align: center;
   }
+
+  &--input {
+    width: auto;
+    height: 3.0rem;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-right: 1rem;
+  }
+
 }
