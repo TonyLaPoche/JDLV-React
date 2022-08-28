@@ -13,7 +13,10 @@ Jeux de la vie en React avec Redux
   7. Rajouter la possibiliter de rejouter le dernier patern lancer depuis le son point de départ. CHECK
   8. Améliorer le panneau de contrôle afin de le rendre plus intuitif. CHECK
   9. Paufiner le système de sauvegarde de patern (utilisation du LocalStorage). EN COURS
-  10. Rajouter la possibiliter de transmettre par Clipboard ses paterns et donc d'en recevoir égament. NEXT STEP
+      - Support [video](https://youtu.be/rWfhwW9forg) "LocalStorage"
+      - Support [documentation](https://blog.logrocket.com/implementing-copy-clipboard-react-clipboard-api/) "Copy OnClipBoard"
+  10. Rajouter la possibiliter de transmettre par Clipboard ses paterns et donc d'en recevoir également. NEXT STEP
+  11. Rhabiller tout le corps HTML SCSS en Mobile First
 
 ## Installation
 
