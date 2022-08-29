@@ -206,3 +206,14 @@ export function decreaseSpeedValue() {
     type: DECREASE_SPEED_VALUE,
   };
 }
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const SHOW_SAVE_LOCAL = 'SHOW_SAVE_LOCAL';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function showSaveLocal(value) {
+  return {
+    type: SHOW_SAVE_LOCAL,
+    value: value,
+  };
+}

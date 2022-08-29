@@ -1,7 +1,11 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-shadow */
 import {
-  CHANGE_INPUT_NAME_SAVE, DELETE_SAVE, INSERT_NEW_ARRAY_ON_SAVE, KEEPING_INITIAL_GAME, SET_MODIFY,
+  CHANGE_INPUT_NAME_SAVE,
+  DELETE_SAVE,
+  INSERT_NEW_ARRAY_ON_SAVE,
+  KEEPING_INITIAL_GAME,
+  SHOW_SAVE_LOCAL,
 } from '../actions/controlPanelAction';
 
 export const initialState = {
@@ -22,6 +26,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         initialGame: action.value,
+      };
+    case SHOW_SAVE_LOCAL:
+      return {
+        ...state,
+        saved: action.value,
       };
     case CHANGE_INPUT_NAME_SAVE:
       return {
