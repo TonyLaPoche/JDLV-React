@@ -1,8 +1,8 @@
 
 .GameArea {
   // width: 70rem;
-  width: calc(2/3*100%);
-  height: calc(2/3*100vh);
+  width: 90vw;
+  height: 35rem;
   // height: 70rem;
   display: flex;
   margin: 0 auto;
@@ -24,15 +24,17 @@
   }
   &__container {
     display: flex;
+    flex-wrap: wrap;
+    // width: 100%;
     position: relative;
     &--savedBox {
-      width: 30%;
+      width: 90vw;
       font-size: 2rem;
       border: 1px solid black;
       padding: 0 1rem;
       align-self: flex-start;
       height: auto;
-      margin-left: 2rem;
+      margin:1rem auto;
       h2 {
         text-align: center;
         margin: 1rem;
@@ -71,3 +73,29 @@
   font-size: 3rem;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .GameArea {
+    height: 70rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .controlePanel__container {
+    margin: 0;
+    height: max-content;
+    width: calc(2/10*100%);
+  }
+  .GameArea {
+    width: calc(5/10*100%);
+    margin: 0 2rem;
+    height: 70rem;
+    &__container {
+      margin: 0 auto;
+      justify-content: center;
+    }
+    &__container--savedBox {
+      margin: 0;
+      width: auto;
+    }
+  }
+}
