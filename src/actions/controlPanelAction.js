@@ -211,9 +211,10 @@ export function decreaseSpeedValue() {
 export const SHOW_SAVE_LOCAL = 'SHOW_SAVE_LOCAL';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function showSaveLocal(value) {
+export function showSaveLocal(value, id) {
   return {
     type: SHOW_SAVE_LOCAL,
     value: value,
+    id: id,
   };
 }

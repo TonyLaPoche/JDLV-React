@@ -22,7 +22,7 @@ function SavedBoxs() {
   };
   return (
     <div className="GameArea__container--savedBox">
-      <h2>Patern Sauvegardé. <br />(feature en cours) </h2>
+      <h2>Patern Sauvegardées<br />(feature en cours) </h2>
       <div className="savedBox--item">
         <button type="button" className="fullBtn" onClick={handlerReplayLasted}>
           <FontAwesomeIcon icon={faArrowRotateLeft} size="xl" />

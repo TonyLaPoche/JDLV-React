@@ -5,7 +5,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInputNameSave, insertNewArrayOnSave } from '../../../actions/controlPanelAction';
+import { changeInputNameSave, insertNewArrayOnSave, showSaveLocal } from '../../../actions/controlPanelAction';
 
 // == Composant
 function GeneratorSave({ id, saveName }) {
@@ -15,12 +15,23 @@ function GeneratorSave({ id, saveName }) {
 
   useEffect(() => {
     const data = window.localStorage.getItem('SAVES_LIST');
-    if (data !== null) console.log(JSON.parse(data));
+    if (data !== null) {
+      // console.log(JSON.parse(data));
+      const datas = JSON.parse(data);
+      // console.log('data => ', data);
+      const ids = datas.map((saves) => saves.id);
+      const result = Math.max(...ids);
+      console.log('max id', result >= 0 ? result : 0);
+      dispatch(showSaveLocal(datas, result >= 0 ? result : 0));
+    }
   }, []);
 
+  // useEffect(() => { console.log('changement') }, [currentPattern]);
   const handleSave = () => {
-    console.log('je souhaite save la save: ', id);
-    console.log('je souhaite save ce patern: ', currentPattern);
+    // console.log('je souhaite save la save: ', id);
+    useEffect(() => {
+      console.log('je souhaite save ce patern: ', currentPattern);
+    }, [currentPattern]);
     console.log('ce patern à une taille de : ', currentPattern.length);
     dispatch(insertNewArrayOnSave(currentPattern, currentPattern.length));
   };
@@ -35,20 +46,21 @@ function GeneratorSave({ id, saveName }) {
   };
 
   return (
-    <div className="savedBox--item">
+    <>
+      <h2>Sauvegarder le patern courant</h2>
+      <div className="savedBox--item">
+        <button type="button" onClick={handleSave}>
+          <FontAwesomeIcon icon={faDownload} size="xl" color={saveName !== '' ? 'green' : 'red'} />
+        </button>
 
-      <button type="button" onClick={handleSave}>
-        <FontAwesomeIcon icon={faDownload} size="xl" color={saveName !== '' ? 'green' : 'red'} />
-      </button>
-
-      <input
-        type="text"
-        name="slot$"
-        value={saveName}
-        onChange={handleInput}
-      />
-
-    </div>
+        <input
+          type="text"
+          name="slot$"
+          value={saveName}
+          onChange={handleInput}
+        />
+      </div>
+    </>
   );
 }
 

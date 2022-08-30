@@ -30,6 +30,7 @@ const reducer = (state = initialState, action = {}) => {
     case SHOW_SAVE_LOCAL:
       return {
         ...state,
+        savePatern: { ...state.savePatern, id: action.id + 1 },
         saved: action.value,
       };
     case CHANGE_INPUT_NAME_SAVE:
@@ -47,7 +48,8 @@ const reducer = (state = initialState, action = {}) => {
         saved: [
           ...state.saved,
           {
-            ...state.savePatern,
+            id: state.savePatern.id,
+            saveName: state.savePatern.saveName,
             valuePatern: action.value,
             sizePatern: action.size,
           },

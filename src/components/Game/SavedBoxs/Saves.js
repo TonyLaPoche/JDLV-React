@@ -16,12 +16,8 @@ function Saves({
   const dispatch = useDispatch();
   const saveList = useSelector((state) => state.savedGame.saved);
   const handleRemove = () => {
-    // console.log('liste des saves', saveList);
-    // console.log('save ciblé => ', saveList[id]);
-    // console.log('liste des saves sans celle ciblé', saveList.filter((save) => save !== saveList[id]));
-    // console.log('liste des saves moins la deuxieme', saveList);
     const newSaveList = saveList.filter((save) => save !== saveList[id]);
-    dispatch(deleteSave(newSaveList));
+    dispatch(deleteSave(saveList[1] !== undefined ? newSaveList : []));
   };
   const handlePlay = () => {
     dispatch(setDelayLoop(0));
