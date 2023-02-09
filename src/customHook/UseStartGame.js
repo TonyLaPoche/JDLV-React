@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-// import { RunGame } from '../mecanique';
 
 const UseStartGame = (callback, delay) => {
   const savedCallback = useRef();

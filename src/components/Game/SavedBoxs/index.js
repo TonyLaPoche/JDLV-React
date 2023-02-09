@@ -7,14 +7,14 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLastPatern } from '../../../actions/controlPanelAction';
-import GeneratorSave from './GeneratorSave';
-import Saves from './Saves';
+// import GeneratorSave from './GeneratorSave';
+// import Saves from './Saves';
 
 // == Composant
 function SavedBoxs() {
   const lastpaternPlayed = useSelector((state) => state.savedGame.initialGame);
-  const saves = useSelector((state) => state.savedGame.saved);
-  const savePatern = useSelector((state) => state.savedGame.savePatern);
+  // const saves = useSelector((state) => state.savedGame.saved);
+  // const savePatern = useSelector((state) => state.savedGame.savePatern);
   // saves.map((item) => console.log({...item}));
   const dispatch = useDispatch();
   const handlerReplayLasted = () => {
@@ -22,7 +22,7 @@ function SavedBoxs() {
   };
   return (
     <div className="GameArea__container--savedBox">
-      <h2>Patern Sauvegardées<br />(feature en cours) </h2>
+      <h2>Sauvegardes<br />( feature en cours )</h2>
       <div className="savedBox--item">
         <button type="button" className="fullBtn" onClick={handlerReplayLasted}>
           <FontAwesomeIcon icon={faArrowRotateLeft} size="xl" />
@@ -31,8 +31,8 @@ function SavedBoxs() {
           </p>
         </button>
       </div>
-      <GeneratorSave key="generateurSave" {...savePatern} />
-      {saves.map((item) => <Saves key={item.id} {...item} />)}
+      {/* <GeneratorSave key="generateurSave" {...savePatern} />
+      {saves.map((item) => <Saves key={item.id} {...item} />)} */}
     </div>
   );
 }

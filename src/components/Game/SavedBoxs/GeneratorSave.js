@@ -16,23 +16,17 @@ function GeneratorSave({ id, saveName }) {
   useEffect(() => {
     const data = window.localStorage.getItem('SAVES_LIST');
     if (data !== null) {
-      // console.log(JSON.parse(data));
       const datas = JSON.parse(data);
-      // console.log('data => ', data);
       const ids = datas.map((saves) => saves.id);
       const result = Math.max(...ids);
-      console.log('max id', result >= 0 ? result : 0);
       dispatch(showSaveLocal(datas, result >= 0 ? result : 0));
     }
   }, []);
 
-  // useEffect(() => { console.log('changement') }, [currentPattern]);
   const handleSave = () => {
-    // console.log('je souhaite save la save: ', id);
     useEffect(() => {
-      console.log('je souhaite save ce patern: ', currentPattern);
     }, [currentPattern]);
-    console.log('ce patern à une taille de : ', currentPattern.length);
+    // console.log('ce patern à une taille de : ', currentPattern.length);
     dispatch(insertNewArrayOnSave(currentPattern, currentPattern.length));
   };
 
@@ -42,7 +36,7 @@ function GeneratorSave({ id, saveName }) {
 
   const handleInput = (e) => {
     dispatch(changeInputNameSave(e.target.value));
-    console.log('create input');
+    // console.log('create input');
   };
 
   return (

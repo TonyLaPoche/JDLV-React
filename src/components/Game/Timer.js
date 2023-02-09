@@ -7,7 +7,6 @@ function Timer() {
   let count = 1;
   useEffect(() => {
     const intervalID = setInterval(() => {
-      console.log('hello');
       count += 1;
     }, 1000);
 

@@ -41,7 +41,6 @@ function ControlePanel() {
         : distpach(resetAreaGame(parseInt(cellsNumber, 10)));
     }
     else {
-      console.log('Veuillez arrêter le jeu ou raffraichir la page.');
       alert('Veuillez arrêter le jeu ou raffraichir la page.');
     }
   };
@@ -53,7 +52,6 @@ function ControlePanel() {
   };
 
   const handleSpeedDecrease = (evt) => {
-    console.log(evt.target.value);
     if (delayLoop <= 4) {
       distpach(addingSpeedValue());
     }
@@ -63,7 +61,6 @@ function ControlePanel() {
   };
 
   const handleSpeedAdd = (evt) => {
-    console.log(evt.target.value);
     if (delayLoop >= 2) {
       distpach(decreaseSpeedValue());
     }
