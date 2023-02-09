@@ -28,3 +28,4 @@ Jeux de la vie en React avec Redux
   1. [demo v1](https://jdlv-tony-react-v1.surge.sh/)
   2. [demo v2](https://jdlv-tony-react-v2.surge.sh/)
   3. [demo v3](https://jdlv-tony-react-v3.surge.sh/) (responsive)
+  4. [demo v4](https://jdlv-tony-react-v4.surge.sh/) (preview mode)
