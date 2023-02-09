@@ -1,0 +1,43 @@
+.header__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  &--logo {
+    width: 10rem;
+    position: absolute;
+    left: .5rem;
+    top: 5rem;
+    max-width: 15rem;
+    animation: rotation 10s infinite linear;
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+  }
+  &--title {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &--title small {
+    font-size: .5em;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .header__container {
+    &--logo {
+      top: .5rem;
+    }
+  }
+}
+
+
+

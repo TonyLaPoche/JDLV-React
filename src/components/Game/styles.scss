@@ -1,0 +1,101 @@
+
+.GameArea {
+  // width: 70rem;
+  width: 90vw;
+  height: 35rem;
+  // height: 70rem;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 10px;
+  border: 5px solid black;
+  &--row {
+    display: flex;
+    flex-wrap: nowrap;
+    height: calc(1/3*100%);
+  }
+  &--cell {
+    width: calc(1/3*100%);
+    border: .1px solid #61DBFB;
+    transition: background-color 300ms ease-in-out;
+  }
+  &--cell:hover {
+    cursor: pointer;
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    // width: 100%;
+    position: relative;
+    &--savedBox {
+      width: 90vw;
+      font-size: 2rem;
+      border: 1px solid black;
+      padding: 0 1rem;
+      align-self: flex-start;
+      height: auto;
+      margin:1rem auto;
+      h2 {
+        text-align: center;
+        margin: 1rem;
+        padding: 0;
+      }
+      .savedBox--item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        padding: .5rem;
+        margin-bottom: 1rem;
+        .fullBtn {
+          width: 100%;
+          padding: .5rem;
+        }
+        p {
+          margin: 0 .5rem;
+        }
+        input {
+          width: 80%;
+          padding: 0.3rem;
+        }
+      }
+    }
+  }
+  .alive {
+    background-color: yellow;
+  }
+}
+
+.cycleHeader {
+  margin: 1rem 0 3rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .GameArea {
+    height: 70rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .controlePanel__container {
+    margin: 0;
+    height: max-content;
+    width: calc(2/10*100%);
+  }
+  .GameArea {
+    width: calc(5/10*100%);
+    margin: 0 2rem;
+    height: 70rem;
+    &__container {
+      margin: 0 auto;
+      justify-content: center;
+    }
+    &__container--savedBox {
+      margin: 0;
+      width: auto;
+    }
+  }
+}
