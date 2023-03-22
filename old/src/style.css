@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card-title {
+  top: 0;
+  right: 0;
+}
+
+.card-image {
+  top: 0;
+  right: 0;
+}
+
+
