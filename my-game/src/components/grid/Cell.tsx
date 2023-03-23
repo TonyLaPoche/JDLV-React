@@ -22,7 +22,7 @@ const Cell: React.FC<CellProps> = ({ isAlive, posX, posY }) => {
   );
 
   const HandleClick = () => {
-    let Position = [posY, posX];
+    let Position = [posX, posY];
     console.log(`cell position : ${'' + posX + posY} CLICKED`);
     dispatch(setCellStatus(Position));
   };

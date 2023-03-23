@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-interface Cell {
+export interface Cell {
   alive: boolean;
   posX: string;
   posY: string;
 }
 
-interface Jdlv {
+export interface Jdlv {
   sizeGame: number;
   game: Cell[][];
   counter: number;
