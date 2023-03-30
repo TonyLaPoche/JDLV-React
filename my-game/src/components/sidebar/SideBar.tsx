@@ -2,34 +2,36 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
-import { setBoolean } from '../../features/boolean/booleanSlice';
+import { openNav } from '../../features/menu/menuSlice';
+import { Accordion } from './Accordion';
+import { MoreControle } from './MoreControle';
 
 // import { useAppSelector, useAppDispatch } from '../../app/hooks';
 
 export const SideBar = () => {
   const dispatch = useDispatch();
-  const isClicked = useSelector((state: RootState) => state.boolean.value);
+  const isClicked = useSelector((state: RootState) => state.menu.navOpen);
 
   const handleClick = () => {
-    dispatch(setBoolean(!isClicked));
+    dispatch(openNav(!isClicked));
   };
 
   return (
     <>
       <div
         id="drawer-navigation"
-        className={`fixed top-0 left-0 z-40 w-64 h-[80vh] rounded-lg p-4 overflow-y-auto transition-transform ${
-          !isClicked ? '-translate-x-full' : 'transform-none'
+        className={`fixed top-0 right-0 z-40 w-[75vw] h-[80vh] rounded-lg p-4 overflow-y-auto transition-transform ${
+          !isClicked ? 'translate-x-full' : 'transform-none'
         } bg-white dark:bg-gray-800`}
         tabIndex={-1}
         aria-labelledby="drawer-navigation-label"
       >
-        <h5
+        <h3
           id="drawer-navigation-label"
           className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400"
         >
           Menu
-        </h5>
+        </h3>
         <button
           type="button"
           data-drawer-hide="drawer-navigation"
@@ -52,8 +54,13 @@ export const SideBar = () => {
           </svg>
           <span className="sr-only">Close menu</span>
         </button>
-        <div className="py-4 overflow-y-auto">
-          <p>test</p>
+        <div className="py-4 overflow-y-auto w-full flex flex-col">
+          {<Accordion />}
+          <hr className=" mx-auto mt-4 mb-2 w-[80%] border-slate-400 dark:border-slate-200 border-2 rounded-xl" />
+          <h4 className="text-center font-semibold text-gray-500 uppercase italic dark:text-gray-400">
+            Controle
+          </h4>
+          <MoreControle />
         </div>
       </div>
       {isClicked && (

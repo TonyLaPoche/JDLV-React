@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 const UseStartGame = (callback, delay) => {
   const savedCallback = useRef();
   const dispatch = useDispatch();
-
   useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
