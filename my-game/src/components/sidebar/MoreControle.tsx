@@ -1,37 +1,42 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
-import { setBg, setCell, setSpeed } from '../../features/menu/menuSlice';
+import {
+  setBg,
+  setBorder,
+  setBorderColor,
+  setCell,
+  setSpeed,
+} from '../../features/menu/menuSlice';
 
 const Speed: string[] = ['lent', 'normal', 'rapide'];
 const regex = /^#[0-9a-fA-F]{6}$/;
 
 export const MoreControle = () => {
-  //   const [range, setRange] = useState(1);
-  //   const [inputCell, setInputCell] = useState('');
-  //   const [inputBg, setInputBg] = useState('');
-
-  const { speed, cellColor, bgColor } = useSelector(
+  const { speed, cellColor, bgColor, border, borderColor } = useSelector(
     (state: RootState) => state.menu.controle
   );
 
   const handleChange = (e: any) => {
-    // setRange(e.target.value);
     dispatch(setSpeed(e.target.value));
   };
 
   const dispatch = useDispatch();
 
+  const handleTest = () => {
+    dispatch(setBorder(!border));
+  };
+
   const handleInput = (e: any) => {
     let value = e.target.value;
     switch (e.target.name) {
       case 'bgColors':
-        // setInputBg(value);
         dispatch(setBg(value));
         break;
       case 'cellColors':
-        // setInputCell(value);
         dispatch(setCell(value));
+        break;
+      case 'borderColors':
+        dispatch(setBorderColor(value));
         break;
       default:
         console.log('error');
@@ -131,6 +136,55 @@ export const MoreControle = () => {
           </span>
         </div>
       </div>
+
+      <div className="w-full py-4 flex items-center justify-start md:justify-center gap-4">
+        <label
+          htmlFor="bgColors"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Bordure
+        </label>
+        <div className="flex">
+          <input
+            type="text"
+            id="borderColors"
+            name="borderColors"
+            value={borderColor}
+            onChange={handleInput}
+            className="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="#FFFFFF"
+          />
+          <span className="flex p-2 items-center text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+            <svg width={24} height={24}>
+              <rect
+                x="0"
+                y="0"
+                width="24"
+                height="24"
+                rx="10"
+                ry="10"
+                fill={regex.test(borderColor) ? borderColor : 'grey'}
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div className="flex justify-center my-1">
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            value=""
+            className="sr-only peer"
+            onChange={handleTest}
+            checked={!border}
+          />
+          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            {border ? 'Sans bordure' : 'Avec bordure'}
+          </span>
+        </label>
+      </div>
+      <hr className="mx-auto w-1/3 my-2" />
       <p>
         Pour le format des couleurs basé vous sur ce site{' '}
         <a
@@ -141,7 +195,6 @@ export const MoreControle = () => {
         >
           Colors Pickers
         </a>{' '}
-        et donné le format #000000
       </p>
       <hr className="mx-auto w-1/3 my-2" />
       <p>D'autres features sont à venir !</p>

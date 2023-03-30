@@ -20,23 +20,22 @@ const delay: number[] = [2000, 1000, 500];
 
 export const Control = () => {
   const [start, setStart] = useState(false);
-  const [timer, setTime] = useState(0);
 
   const count: number = useAppSelector(selectCount2);
   const speed: number = useAppSelector(Speed);
   const CurrentGame: Cell[][] = useAppSelector(AreaGame);
-
-  // console.log(CurrentGame);
 
   const dispatch = useDispatch();
 
   const isButtonClicked = useSelector((state: RootState) => state.menu.navOpen);
 
   const handleClick = () => {
+    setStart(false);
     dispatch(openNav(!isButtonClicked));
   };
 
   const handleRdGrid = () => {
+    setStart(false);
     dispatch(setRandomGrid(count));
   };
 
@@ -53,16 +52,12 @@ export const Control = () => {
 
   const handleClearChange = () => {
     setStart(false);
-    setTime(0);
     dispatch(clearGrid(count));
   };
 
   useInterval(
     () => {
-      console.log("C'est party");
-      setTime(timer + 1);
       dispatch(playGame(CurrentGame));
-      // dispatch(setTimer(timer));
     },
     start ? delay[speed] : null
   );
@@ -98,7 +93,10 @@ export const Control = () => {
         </button>
       </div>
       <div className="w-ful flex justify-center gap-10 md:gap-24">
-        <button className="text-white text-2xl bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md  px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        <button
+          className="text-white text-2xl bg-blue-200 hover:bg-blue-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-md  px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          disabled
+        >
           Replay
         </button>
         <button

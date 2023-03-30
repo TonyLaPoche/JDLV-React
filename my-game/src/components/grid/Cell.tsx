@@ -16,6 +16,9 @@ const Cell: React.FC<CellProps> = ({ isAlive, posX, posY }) => {
   const { game, onMousePress } = useSelector(
     (state: RootState) => state.gameOfLife
   );
+  const { border, borderColor } = useSelector(
+    (state: RootState) => state.menu.controle
+  );
   const size = `${(1 / game.length) * 100}%`;
 
   const aliveColors = useAppSelector(CellColors);
@@ -33,11 +36,13 @@ const Cell: React.FC<CellProps> = ({ isAlive, posX, posY }) => {
       data-x={posX}
       data-y={posY}
       className={
-        'h-[100%] border border-gray-300 ring-blue-500 hover:ring-1 ring-offset-2 hover:z-10'
+        'h-[100%]  ring-blue-500 hover:ring-1 ring-offset-2 hover:z-10'
       }
       style={{
         width: size,
         backgroundColor: isAlive ? aliveColors : DeadColors,
+        borderWidth: !border ? '1px' : '0px',
+        borderColor: borderColor,
       }}
       onClick={HandleClick}
       onMouseOver={(e) => {
