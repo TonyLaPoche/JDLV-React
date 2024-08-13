@@ -20,7 +20,7 @@ export const SideBar = () => {
     <>
       <div
         id="drawer-navigation"
-        className={`fixed top-0 right-0 z-40 w-[75vw] h-[80vh] rounded-lg p-4 overflow-y-auto transition-transform ${
+        className={`fixed top-0 right-0 z-40 w-[85vw] h-[90vh] rounded-lg p-4 overflow-y-auto transition-transform ${
           !isClicked ? 'translate-x-full' : 'transform-none'
         } bg-white dark:bg-gray-800`}
         tabIndex={-1}
@@ -54,9 +54,8 @@ export const SideBar = () => {
           </svg>
           <span className="sr-only">Close menu</span>
         </button>
-        <div className="py-4 overflow-y-auto w-full flex flex-col">
+        <div className="py-4 overflow-y-auto w-full flex flex-col gap-2">
           {<Accordion />}
-          <hr className=" mx-auto mt-4 mb-2 w-[80%] border-slate-400 dark:border-slate-200 border-2 rounded-xl" />
           <h4 className="text-center font-semibold text-gray-500 uppercase italic dark:text-gray-400">
             Controle
           </h4>

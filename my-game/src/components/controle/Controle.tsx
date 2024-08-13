@@ -13,8 +13,8 @@ import {
   setValue2,
 } from '../../features/algo/gameOfLife';
 import { openNav, Speed } from '../../features/menu/menuSlice';
-import { BsQuestionLg } from 'react-icons/bs';
-import { AiOutlineClose } from 'react-icons/ai';
+import { BsMenuApp, BsMenuButton, BsMenuDown, BsQuestionLg } from 'react-icons/bs';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const delay: number[] = [2000, 1000, 500];
 
@@ -107,10 +107,10 @@ export const Control = () => {
         </button>
         <div className="absolute right-5 bottom-6 z-30 ">
           <button
-            className=" w-12 h-12 flex  justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-md px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className=" w-12 h-12 fixed bottom-6 right-6 flex  justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-md px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             onClick={handleClick}
           >
-            {isButtonClicked ? <AiOutlineClose /> : <BsQuestionLg />}
+            {isButtonClicked ? <AiOutlineClose /> : <AiOutlineMenu/>}
           </button>
         </div>
       </div>

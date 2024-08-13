@@ -19,7 +19,7 @@ const Grid = () => {
   window.addEventListener('resize', () => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    const size = Math.min(viewportWidth, viewportHeight) * 0.85;
+    const size = Math.min(viewportWidth, viewportHeight) * 0.70;
     const square = document.querySelector('#square') as HTMLDivElement;
     square.style.width = `${size}px`;
     square.style.height = `${size}px`;

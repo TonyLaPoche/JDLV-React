@@ -42,10 +42,10 @@ const initialState: Jdlv = {
 
 const countCellAlive = (area: Cell[][]) => {
   let counterCell = 0;
-  for (let i = 0; i < area.length; i++) {
-    const row = area[i];
-    for (let j = 0; j < row.length; j++) {
-      const cell = row[j];
+  for (const element of area) {
+    const row = element;
+    for (const element of row) {
+      const cell = element;
       if (cell.alive) {
         counterCell++;
       }
@@ -62,7 +62,7 @@ const gridRandomGenerator = (s: number) => {
     for (let j = 0; j < s; j++) {
       let random: number = Math.floor(Math.random() * (3 - 1) + 1);
       const cell = {
-        alive: random === 1 ? false : true,
+        alive: random !== 1,
         posX: '' + j,
         posY: '' + i,
       };
@@ -118,9 +118,6 @@ const gameOfLiceReducer = createSlice({
       state.sizeGame = action.payload;
     },
 
-    // setTimer: (state, action: PayloadAction<number>) => {
-    //   state.counter = action.payload;
-    // },
     playGame: (state, action: PayloadAction<Cell[][]>) => {
       state.game = RunGame(action.payload);
       state.counterCellAlive = countCellAlive(state.game);
@@ -137,7 +134,6 @@ export const {
   setCellStatus,
   setRandomGrid,
   clearGrid,
-  // setTimer,
   playGame,
   onMousePress,
 } = gameOfLiceReducer.actions;
