@@ -13,7 +13,6 @@ import {
   setValue2,
 } from '../../features/algo/gameOfLife';
 import { openNav, Speed } from '../../features/menu/menuSlice';
-import { BsMenuApp, BsMenuButton, BsMenuDown, BsQuestionLg } from 'react-icons/bs';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const delay: number[] = [2000, 1000, 500];

@@ -178,13 +178,17 @@ export const Accordion = () => {
           </p>
           {/* VIDEO */}
           {(
-            <iframe
-              // width="560"
-              className="w-full h-30 md:w-[70%] md:h-60 mx-auto mt-8"
-              src="https://www.youtube.com/embed/S-W0NX97DB0"
-              title="YouTube video player"
-              allowFullScreen
-            ></iframe>
+            <iframe 
+            className="w-full h-30 md:w-[70%] md:h-60 mx-auto mt-8" 
+            src="https://www.youtube.com/embed/S-W0NX97DB0" 
+            title="Le Jeu de la Vie" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin" 
+          
+            >
+            </iframe>
+
+
           ) ?? <p>'Your browser does not support the video tag.'</p>}
         </div>
       </div>
